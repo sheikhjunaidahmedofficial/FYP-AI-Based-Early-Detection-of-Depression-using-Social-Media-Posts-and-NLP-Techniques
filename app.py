@@ -5,7 +5,7 @@ import time
 import json
 import os
 import re
-from utils import clean_text
+from text_utils import clean_text
 import base64
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -303,3 +303,4 @@ with right_col:
 
 st.markdown("---")
 st.caption("🎓 FYP – AI-Based Depression Detection")
+
