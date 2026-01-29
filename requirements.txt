@@ -6,3 +6,4 @@ joblib
 nltk
 textblob
 regex
+emoji
