@@ -128,7 +128,7 @@ Text is cleaned and normalized using `utils.py` with the following steps:
 ### Deployment
 
 The application is deployed on Streamlit Cloud and can be accessed online:  
-[AI-Based Depression Detection](https://ai-based-depression-detection-by-using-nlp.streamlit.app)
+[AI-Based Early Detection of Depression using Social Media Posts and NLP Techniques](https://ai-based-depression-detection-by-using-nlp.streamlit.app)
 
 #
 
