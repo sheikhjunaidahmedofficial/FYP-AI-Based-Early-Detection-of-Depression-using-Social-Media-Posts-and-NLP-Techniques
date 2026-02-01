@@ -13,11 +13,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 # ================== PAGE CONFIG ==================
-st.set_page_config(page_title="AI Depression Detection", page_icon="assets/logo.png", layout="wide")
+st.set_page_config(page_title="AI Depression Detection", page_icon="logo.png", layout="wide")
 REPORT_FILE = "reports.json"
 
 # ================== BACKGROUND IMAGE ==================
-with open("assets/bg.jpg", "rb") as f:
+with open("bg.jpg", "rb") as f:
     encoded = base64.b64encode(f.read()).decode()
 
 
@@ -260,7 +260,7 @@ def get_base64_logo(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-logo_base64 = get_base64_logo("assets/logo.png")
+logo_base64 = get_base64_logo("logo.png")
 st.markdown(f"""
    <img src="data:image/png;base64,{logo_base64}" 
      alt="Logo" 
@@ -314,20 +314,33 @@ with left_col:
         placeholder.empty()
         st.success("Dataset loaded successfully")
 
-        # CLEAN TEXT COLUMN (IMPORTANT)
+        # CLEAN TEXT COLUMN
         data["clean_text"] = data["text"].apply(clean_text)
 
+    
 
-        # ---------- SHOW FIRST 5 ROWS FULL WIDTH ----------
+        # ---------- NEW WINDOW (DIALOG) FIX ----------
+        @st.dialog("Full Dataset View", width="large")
+        def show_full_data_window(df):
+            st.write("Browse and download the complete processed dataset below:")
+            
+            # --- DOWNLOAD LOGIC ---
+            csv = df.to_csv(index=False).encode('utf-8')
+            st.download_button(
+                label="📥 Download",
+                data=csv,
+                file_name='Processed_Data.csv',
+                mime='text/csv',
+            )
+            # ----------------------
 
-        st.dataframe(data[["text", "clean_text", "label"]].head(), use_container_width=True)
+            st.dataframe(df, use_container_width=True, height=400)
+            
+            if st.button("Close"):
+                st.rerun()
 
-
-        # ---------- FULL SCREEN DATASET BUTTON ----------
-        if st.button("🔍 View Full Dataset"):
-            st.markdown("### Full Dataset View")
-            st.dataframe(data[["text", "clean_text", "label"]], use_container_width=True)
-
+        if st.button("🔍 View Full Preprocessed Dataset"):
+            show_full_data_window(data[["text", "clean_text", "label"]])
 
         # ---------- TRAIN MODEL BUTTON ----------
         if st.button("🚀 Train Model"):
@@ -412,6 +425,4 @@ with right_col:
 
 
 st.markdown("---")
-st.caption("🎓 FYP – AI-Based Depression Detection")
-
-
+st.caption("🎓 FYP – AI-Based Early Detection of Depression using Social Media Posts and NLP Techniques")
