@@ -1,4 +1,4 @@
-# AI-Based Depression Detection Using NLP
+# AI-Based Early Detection of Depression using Social Media Posts and NLP Techniques
 
 ### Final Year Project (FYP)
 
@@ -128,6 +128,7 @@ Text is cleaned and normalized using `utils.py` with the following steps:
 ### Deployment
 
 The application is deployed on Streamlit Cloud and can be accessed online:  
+![Preview](https://github.com/user-attachments/assets/843da7a3-a744-416f-a1c6-1068ba3c9a25)
 [AI-Based Early Detection of Depression using Social Media Posts and NLP Techniques](https://ai-based-early-detection-of-depression.streamlit.app)
 
 #
