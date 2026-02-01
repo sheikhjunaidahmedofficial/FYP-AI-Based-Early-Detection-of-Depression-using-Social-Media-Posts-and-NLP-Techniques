@@ -13,11 +13,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 # ================== PAGE CONFIG ==================
-st.set_page_config(page_title="AI Depression Detection", page_icon="logo.png", layout="wide")
+st.set_page_config(page_title="AI Depression Detection", page_icon="assets/logo.png", layout="wide")
 REPORT_FILE = "reports.json"
 
 # ================== BACKGROUND IMAGE ==================
-with open("bg.jpg", "rb") as f:
+with open("assets/bg.jpg", "rb") as f:
     encoded = base64.b64encode(f.read()).decode()
 
 
@@ -260,7 +260,7 @@ def get_base64_logo(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-logo_base64 = get_base64_logo("logo.png")
+logo_base64 = get_base64_logo("assets/logo.png")
 st.markdown(f"""
    <img src="data:image/png;base64,{logo_base64}" 
      alt="Logo" 
@@ -426,3 +426,4 @@ with right_col:
 
 st.markdown("---")
 st.caption("🎓 FYP – AI-Based Early Detection of Depression using Social Media Posts and NLP Techniques")
+
