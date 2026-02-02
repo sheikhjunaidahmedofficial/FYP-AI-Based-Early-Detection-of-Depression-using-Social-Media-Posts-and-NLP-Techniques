@@ -41,11 +41,15 @@ Key functionalities include:
 
 **Programming Language**
 
-- Python
+- Python <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="22" align="center"/>
 
 **Framework**
 
-- Streamlit
+- Streamlit <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg" width="20" align="center"/>
+
+**Version Control**
+
+- GitHub <img src="https://cdn.simpleicons.org/github/ffffff" width="18" align="center"/>
 
 **Machine Learning & NLP**
 
